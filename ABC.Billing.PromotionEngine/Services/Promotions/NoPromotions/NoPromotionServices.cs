@@ -6,26 +6,48 @@ using System.Text;
 
 namespace ABC.Billing.PromotionEngine.Services.Promotions.NoPromotions
 {
+    /// <summary>
+    /// This service calculates no promotions.
+    /// </summary>
     public class NoPromotionServices : IPromotionServices
     {
+        private ICartService _cartService;
+        private IPriceListService _priceListService;
+
 
         public NoPromotionServices()
         {
 
         }
-        public decimal Price()
-        {
-            throw new NotImplementedException();
-        }
-
+        /// <summary>
+        /// Set cart for discount
+        /// </summary>
+        /// <param name="cartService"></param>
         public void SetCart(ICartService cartService)
         {
-            throw new NotImplementedException();
+            _cartService = cartService;
         }
-
+        /// <summary>
+        /// Price List service
+        /// </summary>
+        /// <param name="priceListService"></param>
         public void SetPriceList(IPriceListService priceListService)
         {
-            throw new NotImplementedException();
+            _priceListService = priceListService;
+        }
+
+
+        /// <summary>
+        /// Calculate the original cart price
+        /// </summary>
+        /// <returns></returns>
+        public decimal Price()
+        {
+            if (_cartService != null)
+            {
+                return _cartService.Price();
+            }
+            return 0;
         }
     }
 }
