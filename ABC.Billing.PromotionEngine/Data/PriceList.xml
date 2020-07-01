@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<items>
+  <item skuid="A" price="50"/>
+  <item skuid="B" price="30"/>
+  <item skuid="C" price="20"/>
+  <item skuid="D" price="15"/>
+</items>
